@@ -1,4 +1,4 @@
-import { Clock, MessageCircle, Phone } from "lucide-react";
+import { Clock, Mail, MessageCircle, Phone } from "lucide-react";
 import ContactForm from "@/components/contact/ContactForm";
 
 export const metadata = {
@@ -22,8 +22,8 @@ export default function ContactPage() {
             </h1>
 
             <p className="mt-5 text-base leading-7 text-gray-600 sm:text-lg">
-              Have a question or need assistance? Send us a message and we&apos;ll
-              get back to you.
+              Have a question or need assistance? Send us a message and
+              we&apos;ll get back to you.
             </p>
           </div>
         </div>
@@ -65,7 +65,28 @@ export default function ContactPage() {
                         aria-label="Call Lucky Mine at 3074002229"
                         className="mt-0.5 block w-fit text-sm font-semibold text-gray-900 transition-colors duration-200 hover:text-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
                       >
-                       +1 307 400 2229
+                        +1 307 400 2229
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-gray-100 bg-white text-emerald-700 shadow-sm">
+                      <Mail size={19} strokeWidth={1.8} />
+                    </div>
+
+                    <div className="min-w-0">
+                      <p className="text-xs font-bold uppercase tracking-wide text-gray-400">
+                        Email
+                      </p>
+
+                      <a
+                        href="mailto:sales@luckymine.com"
+                        aria-label="Email Lucky Mine at sales@luckymine.com"
+                        className="mt-0.5 block break-all text-sm font-semibold text-gray-900 transition-colors duration-200 hover:text-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
+                      >
+                        sales@luckymine.com
                       </a>
                     </div>
                   </div>
@@ -102,7 +123,6 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-
             </div>
 
             {/* Right: Contact Form */}
@@ -112,7 +132,8 @@ export default function ContactPage() {
               </h2>
 
               <p className="mt-1.5 text-sm text-gray-500">
-                Fill in the form below and we&apos;ll respond as soon as possible.
+                Fill in the form below and we&apos;ll respond as soon as
+                possible.
               </p>
 
               <div className="mt-6">

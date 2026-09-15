@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Clock, Phone } from "lucide-react";
+import { Clock, Mail, Phone } from "lucide-react";
 import DevelopedByStaffArc from "../common/DevelopedByStaffArc";
 import { categories } from "@/data/products";
 
@@ -78,6 +78,7 @@ export default function Footer() {
           <div>
             <h3 className={headingClasses}>Contact Us</h3>
 
+            {/* Phone */}
             <a
               href="tel:3074002229"
               aria-label="Call Lucky Mine at 3074002229"
@@ -89,6 +90,19 @@ export default function Footer() {
               +1 307 400 2229
             </a>
 
+            {/* Email */}
+            <a
+              href="mailto:sales@luckymine.com"
+              aria-label="Email Lucky Mine at sales@luckymine.com"
+              className="mt-3 inline-flex items-center gap-2.5 text-sm font-semibold text-gray-600 transition-colors duration-200 hover:text-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
+            >
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-gray-100 bg-gray-50 text-emerald-700">
+                <Mail size={16} strokeWidth={1.8} />
+              </span>
+              <span className="break-all">sales@luckymine.com</span>
+            </a>
+
+            {/* Business Hours */}
             <h3 className={`${headingClasses} mt-6`}>Business Hours</h3>
 
             <div className="mt-4 flex items-start gap-2.5 text-sm">
