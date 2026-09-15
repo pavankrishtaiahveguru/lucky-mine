@@ -16,9 +16,36 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://luckymine.com"),
+
   title: "Lucky Mine",
+
   description:
     "Shop everyday essentials across Health & Household, Beauty & Personal Care, Sports & Outdoor, Grocery, Art & Craft, and Tools.",
+
+  keywords: [
+    "Lucky Mine",
+    "online shopping",
+    "everyday essentials",
+    "health and household",
+    "beauty and personal care",
+    "sports and outdoor",
+    "grocery",
+    "art and craft",
+    "tools",
+    "household essentials",
+    "personal care products",
+    "fitness and outdoor gear",
+    "grocery essentials",
+    "art supplies",
+    "DIY tools",
+    "online store",
+  ],
+
+  alternates: {
+    canonical: "/",
+  },
+
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",
