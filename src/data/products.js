@@ -22,8 +22,8 @@ export const products = [
     category: "Health & Household",
     description:
       "Useful essentials for your everyday health and household needs.",
-    price: 2.99,
-    originalPrice: 3.99,
+    price: 20.0,
+    originalPrice: 25.0,
     image: "/products/health.jpg",
   },
   {
@@ -32,7 +32,7 @@ export const products = [
     category: "Health & Household",
     description:
       "Practical products to help keep every corner of your home organized.",
-    price: 3.99,
+    price: 24.0,
     image: "/products/household.jpg",
   },
   {
@@ -40,8 +40,8 @@ export const products = [
     name: "Daily Care Kit",
     category: "Health & Household",
     description: "Handy everyday care items for you and your family.",
-    price: 3.49,
-    originalPrice: 4.49,
+    price: 22.0,
+    originalPrice: 27.0,
     image: "/products/daily-care.jpg",
   },
   {
@@ -49,7 +49,7 @@ export const products = [
     name: "Home Comfort Bundle",
     category: "Health & Household",
     description: "Simple comforts that make daily routines a little easier.",
-    price: 5.29,
+    price: 29.0,
     image: "/products/home-comfort.jpg",
   },
 
@@ -59,7 +59,7 @@ export const products = [
     name: "Daily Skincare Essentials",
     category: "Beauty & Personal Care",
     description: "Simple personal care essentials for your daily routine.",
-    price: 4.99,
+    price: 25.0,
     image: "/products/beauty.jpg",
   },
   {
@@ -67,8 +67,8 @@ export const products = [
     name: "Personal Care Essentials",
     category: "Beauty & Personal Care",
     description: "Everyday grooming and personal care essentials.",
-    price: 4.49,
-    originalPrice: 5.49,
+    price: 23.0,
+    originalPrice: 29.0,
     image: "/products/personal-care.jpg",
   },
   {
@@ -76,7 +76,7 @@ export const products = [
     name: "Fresh Start Grooming Kit",
     category: "Beauty & Personal Care",
     description: "Grooming basics to keep you feeling fresh every day.",
-    price: 3.79,
+    price: 21.0,
     image: "/products/grooming.jpg",
   },
   {
@@ -84,7 +84,7 @@ export const products = [
     name: "Gentle Care Set",
     category: "Beauty & Personal Care",
     description: "Mild, everyday products suited for regular use.",
-    price: 5.59,
+    price: 28.0,
     image: "/products/gentle-care.jpg",
   },
 
@@ -94,8 +94,8 @@ export const products = [
     name: "Fitness & Outdoor Gear",
     category: "Sports & Outdoor",
     description: "Practical gear for fitness, sports, and outdoor activities.",
-    price: 7.99,
-    originalPrice: 9.99,
+    price: 35.0,
+    originalPrice: 42.0,
     image: "/products/sports.jpg",
   },
   {
@@ -103,7 +103,7 @@ export const products = [
     name: "Active Start Kit",
     category: "Sports & Outdoor",
     description: "Get moving with simple gear for daily workouts.",
-    price: 6.49,
+    price: 30.0,
     image: "/products/active-kit.jpg",
   },
   {
@@ -111,7 +111,7 @@ export const products = [
     name: "Outdoor Companion Set",
     category: "Sports & Outdoor",
     description: "Handy essentials for walks, hikes, and outdoor time.",
-    price: 8.99,
+    price: 38.0,
     image: "/products/outdoor-set.jpg",
   },
   {
@@ -119,8 +119,8 @@ export const products = [
     name: "Everyday Fitness Bundle",
     category: "Sports & Outdoor",
     description: "Compact fitness essentials for home and travel.",
-    price: 7.49,
-    originalPrice: 8.99,
+    price: 34.0,
+    originalPrice: 40.0,
     image: "/products/fitness-bundle.jpg",
   },
 
@@ -130,7 +130,7 @@ export const products = [
     name: "Everyday Grocery Essentials",
     category: "Grocery",
     description: "Pantry staples and everyday grocery products.",
-    price: 2.49,
+    price: 20.0,
     image: "/products/grocery.jpg",
   },
   {
@@ -138,8 +138,8 @@ export const products = [
     name: "Pantry Staples Pack",
     category: "Grocery",
     description: "Stock your kitchen with reliable everyday staples.",
-    price: 3.29,
-    originalPrice: 4.19,
+    price: 24.0,
+    originalPrice: 29.0,
     image: "/products/pantry.jpg",
   },
   {
@@ -147,7 +147,7 @@ export const products = [
     name: "Snack Time Selection",
     category: "Grocery",
     description: "Tasty everyday snacks for the whole family.",
-    price: 1.99,
+    price: 20.0,
     image: "/products/snacks.jpg",
   },
   {
@@ -155,7 +155,7 @@ export const products = [
     name: "Morning Essentials Box",
     category: "Grocery",
     description: "Start your day right with breakfast-time favourites.",
-    price: 2.89,
+    price: 22.0,
     image: "/products/morning-box.jpg",
   },
 
@@ -165,8 +165,8 @@ export const products = [
     name: "Creative Art Supply Kit",
     category: "Art & Craft",
     description: "Essential supplies for creative projects and crafts.",
-    price: 3.49,
-    originalPrice: 4.49,
+    price: 21.0,
+    originalPrice: 26.0,
     image: "/products/art-craft.jpg",
   },
   {
@@ -174,7 +174,7 @@ export const products = [
     name: "Sketch & Draw Set",
     category: "Art & Craft",
     description: "Pencils, paper, and tools for sketching and drawing.",
-    price: 2.99,
+    price: 20.0,
     image: "/products/sketch-set.jpg",
   },
   {
@@ -182,7 +182,7 @@ export const products = [
     name: "DIY Craft Pack",
     category: "Art & Craft",
     description: "Materials for fun DIY projects at home or school.",
-    price: 2.59,
+    price: 20.0,
     image: "/products/diy-craft.jpg",
   },
   {
@@ -190,8 +190,8 @@ export const products = [
     name: "Colour & Paint Collection",
     category: "Art & Craft",
     description: "Colours, brushes, and palettes for painting sessions.",
-    price: 4.29,
-    originalPrice: 5.29,
+    price: 25.0,
+    originalPrice: 31.0,
     image: "/products/colour-paint.jpg",
   },
 
@@ -201,7 +201,7 @@ export const products = [
     name: "Multi-Purpose Hand Tool",
     category: "Tools",
     description: "Useful tools for everyday repairs and DIY projects.",
-    price: 5.99,
+    price: 28.0,
     image: "/products/tools.jpg",
   },
   {
@@ -209,8 +209,8 @@ export const products = [
     name: "Home Repair Kit",
     category: "Tools",
     description: "A compact kit for quick fixes around the house.",
-    price: 6.89,
-    originalPrice: 8.49,
+    price: 34.0,
+    originalPrice: 42.0,
     image: "/products/repair-kit.jpg",
   },
   {
@@ -218,7 +218,7 @@ export const products = [
     name: "Precision Tool Set",
     category: "Tools",
     description: "Fine tools for detailed and delicate work.",
-    price: 4.59,
+    price: 25.0,
     image: "/products/precision-tools.jpg",
   },
   {
@@ -226,8 +226,8 @@ export const products = [
     name: "Essential Toolkit",
     category: "Tools",
     description: "Core tools every household should have on hand.",
-    price: 7.29,
-    originalPrice: 8.99,
+    price: 39.0,
+    originalPrice: 48.0,
     image: "/products/essential-toolkit.jpg",
   },
 ];

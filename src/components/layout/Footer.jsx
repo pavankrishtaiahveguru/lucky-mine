@@ -86,7 +86,7 @@ export default function Footer() {
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-gray-100 bg-gray-50 text-emerald-700">
                 <Phone size={16} strokeWidth={1.8} />
               </span>
-              +90 307 400 2229
+              +1 307 400 2229
             </a>
 
             <h3 className={`${headingClasses} mt-6`}>Business Hours</h3>

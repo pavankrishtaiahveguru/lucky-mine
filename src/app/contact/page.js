@@ -65,7 +65,7 @@ export default function ContactPage() {
                         aria-label="Call Lucky Mine at 3074002229"
                         className="mt-0.5 block w-fit text-sm font-semibold text-gray-900 transition-colors duration-200 hover:text-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
                       >
-                       +90 307 400 2229
+                       +1 307 400 2229
                       </a>
                     </div>
                   </div>
