@@ -19,6 +19,11 @@ export const metadata = {
   title: "Lucky Mine",
   description:
     "Shop everyday essentials across Health & Household, Beauty & Personal Care, Sports & Outdoor, Grocery, Art & Craft, and Tools.",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({ children }) {
