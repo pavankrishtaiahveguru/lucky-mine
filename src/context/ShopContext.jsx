@@ -9,7 +9,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { Check, Heart, ShoppingCart, X } from "lucide-react";
+import { Check, CheckCircle2, Heart, ShoppingCart, X } from "lucide-react";
 import { products } from "@/data/products";
 
 const ShopContext = createContext(null);
@@ -254,6 +254,7 @@ export function ShopProvider({ children }) {
   const iconFor = {
     cart: ShoppingCart,
     heart: Heart,
+    check: CheckCircle2,
   };
 
   return (

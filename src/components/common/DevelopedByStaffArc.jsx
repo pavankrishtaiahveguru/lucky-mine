@@ -19,7 +19,7 @@ export default function DevelopedByStaffArc() {
       />
 
       <a
-        href="https://www.staffarc.in"
+        href="https://www.staffarc.tech"
         target="_blank"
         rel="noopener noreferrer"
         className="font-semibold text-orange-500 transition-all duration-300 hover:text-black"

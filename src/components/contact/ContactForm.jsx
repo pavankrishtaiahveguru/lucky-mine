@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Send } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { CheckCircle2, Send } from "lucide-react";
+import { useShop } from "@/context/ShopContext";
 
 const initialForm = {
   name: "",
@@ -11,20 +12,35 @@ const initialForm = {
   message: "",
 };
 
-// No backend/email integration exists yet, so there is no real
-// submission mechanism. The form validates client-side and shows
-// the setup notice below instead of pretending the message was
-// delivered. When an API route becomes available, post the form
-// there inside handleSubmit and switch to the success/error states.
-const SETUP_NOTICE =
-  "Contact form is currently being set up. Please check back soon.";
-const ERROR_NOTICE =
-  "We couldn't send your message right now. Please try again.";
+// Showcase/demo-only form: nothing is sent anywhere. Submission is
+// simulated on the frontend only — no API request, no email, no
+// backend endpoint, and no stored data. If a real backend becomes
+// available, add the request inside handleSubmit and replace the
+// simulated success flow with response-based success/error states.
+const SUCCESS_TITLE = "Message sent successfully!";
+const SUCCESS_TEXT =
+  "Thank you for contacting Lucky Mine. We'll get back to you soon.";
+
+const SEND_DELAY_MS = 700; // Brief "Sending..." feedback before success.
+const NOTICE_DISMISS_MS = 5000; // Auto-dismiss the in-form success notice.
 
 export default function ContactForm() {
+  const { showToast } = useShop();
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
-  const [notice, setNotice] = useState(null); // { type: "info" | "error", text }
+  const [status, setStatus] = useState("idle"); // idle | sending | success
+  const noticeTimerRef = useRef(null);
+
+  // Auto-dismiss the in-form success notice after a few seconds.
+  useEffect(() => {
+    if (status !== "success") return;
+
+    noticeTimerRef.current = setTimeout(() => {
+      setStatus("idle");
+    }, NOTICE_DISMISS_MS);
+
+    return () => clearTimeout(noticeTimerRef.current);
+  }, [status]);
 
   const handleChange = (field) => (event) => {
     setForm((current) => ({ ...current, [field]: event.target.value }));
@@ -45,6 +61,10 @@ export default function ContactForm() {
       nextErrors.email = "Please enter a valid email address.";
     }
 
+    if (form.phone.trim().length === 0) {
+      nextErrors.phone = "Please enter your phone number.";
+    }
+
     if (form.subject.trim().length === 0) {
       nextErrors.subject = "Please enter a subject.";
     }
@@ -57,20 +77,31 @@ export default function ContactForm() {
   };
 
   const handleSubmit = (event) => {
+    // Showcase-only: block the browser's default submission so nothing
+    // is ever sent, stored, or delivered.
     event.preventDefault();
 
     const nextErrors = validate();
 
     if (Object.keys(nextErrors).length > 0) {
       setErrors(nextErrors);
-      setNotice(null);
+      setStatus("idle");
       return;
     }
 
-    // Ready for future integration: send the form here and show the
-    // success ("Thanks for reaching out! Your message has been
-    // received.") or error notice based on the response.
-    setNotice({ type: "info", text: SETUP_NOTICE });
+    // Simulate a short processing state, then show success — purely on
+    // the frontend. No data leaves the browser.
+    setStatus("sending");
+
+    setTimeout(() => {
+      setStatus("success");
+      setForm(initialForm);
+      setErrors({});
+      showToast(
+        "Message sent successfully! Thank you for contacting Lucky Mine.",
+        "check"
+      );
+    }, SEND_DELAY_MS);
   };
 
   const inputClasses = (hasError) =>
@@ -79,6 +110,8 @@ export default function ContactForm() {
         ? "border-red-400 focus:border-red-500"
         : "border-gray-200 focus:border-emerald-500"
     }`;
+
+  const isSending = status === "sending";
 
   return (
     <form onSubmit={handleSubmit} noValidate>
@@ -139,13 +172,13 @@ export default function ContactForm() {
           )}
         </div>
 
-        {/* Phone Number (optional) */}
+        {/* Phone Number */}
         <div>
           <label
             htmlFor="contact-phone"
             className="mb-1.5 block text-sm font-semibold text-gray-900"
           >
-            Phone Number
+            Phone Number <span className="text-red-500">*</span>
           </label>
 
           <input
@@ -153,10 +186,18 @@ export default function ContactForm() {
             type="tel"
             value={form.phone}
             onChange={handleChange("phone")}
-            placeholder="Optional"
+            placeholder="Your phone number"
             autoComplete="tel"
-            className={inputClasses(false)}
+            aria-invalid={Boolean(errors.phone)}
+            aria-describedby={errors.phone ? "contact-phone-error" : undefined}
+            className={inputClasses(Boolean(errors.phone))}
           />
+
+          {errors.phone && (
+            <p id="contact-phone-error" className="mt-1.5 text-xs text-red-600">
+              {errors.phone}
+            </p>
+          )}
         </div>
 
         {/* Subject */}
@@ -219,27 +260,48 @@ export default function ContactForm() {
         )}
       </div>
 
-      {/* Notice */}
-      {notice && (
+      {/* Success notice (simulated submission — no message is delivered) */}
+      {status === "success" && (
         <div
           role="status"
-          className={`mt-5 rounded-xl border px-4 py-3 text-sm ${
-            notice.type === "info"
-              ? "border-emerald-100 bg-emerald-50 text-emerald-800"
-              : "border-red-100 bg-red-50 text-red-700"
-          }`}
+          className="mt-5 flex items-start gap-3 rounded-xl border border-emerald-100 bg-emerald-50 px-4 py-3 text-emerald-800"
         >
-          {notice.text}
+          <CheckCircle2
+            size={18}
+            strokeWidth={2}
+            className="mt-0.5 shrink-0 text-emerald-600"
+          />
+
+          <div className="text-sm">
+            <p className="font-semibold">{SUCCESS_TITLE}</p>
+            <p className="mt-0.5 text-emerald-700">{SUCCESS_TEXT}</p>
+          </div>
         </div>
       )}
 
       {/* Submit */}
       <button
         type="submit"
-        className="mt-6 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-emerald-700 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-emerald-700/20 transition-all duration-300 hover:bg-emerald-800 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 sm:w-auto"
+        disabled={isSending}
+        aria-busy={isSending}
+        className="mt-6 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-emerald-700 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-emerald-700/20 transition-all duration-300 hover:bg-emerald-800 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
       >
-        Send Message
-        <Send size={17} strokeWidth={1.8} />
+        {isSending ? (
+          <>
+            Sending...
+            <Send
+              size={17}
+              strokeWidth={1.8}
+              className="animate-pulse"
+              aria-hidden="true"
+            />
+          </>
+        ) : (
+          <>
+            Send Message
+            <Send size={17} strokeWidth={1.8} />
+          </>
+        )}
       </button>
     </form>
   );
