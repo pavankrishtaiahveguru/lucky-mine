@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://luckymine.com"),
+  metadataBase: new URL("https://luckymine.shop"),
 
   title: "Lucky Mine",
 
